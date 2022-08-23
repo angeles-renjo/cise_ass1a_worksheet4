@@ -1,3 +1,6 @@
+      function alertFunction() {
+          alert("Your status is updated!")
+      }
 // eslint-disable-next-line no-sparse-arrays
 const tablecolumns = [
     {
@@ -21,6 +24,26 @@ const tablecolumns = [
     },{
       Header: 'Level of Evidence',
       accessor: 'evidence'
+    },
+    {
+      Header: 'Status',
+      accessor: 'status',
+       Cell: ({ cell }) => (
+        <p value={cell.row.values.name}>
+          unapprove
+        </p>
+      )
+    },
+    {
+      width: 300,
+      Header: "Click to Update",
+      Cell: ({ cell }) => (
+        <button value={cell.row.values.name} onClick={alertFunction}>
+          update
+        </button>
+        
+      )
     }
+
   ]
   export default tablecolumns;
